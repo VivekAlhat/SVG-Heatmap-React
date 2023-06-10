@@ -1,6 +1,7 @@
 import React from 'react';
 import { eachDayOfInterval, differenceInCalendarWeeks, format } from 'date-fns';
 import { Tooltip } from 'react-tooltip';
+import './style.css';
 
 const data = eachDayOfInterval({
   start: new Date(2023, 0, 1),
@@ -35,8 +36,8 @@ const getColor = (count) => {
 
 export default function App() {
   return (
-    <div>
-      <svg width="900">
+    <>
+      <svg>
         {weeks.map((_, idx) => {
           return (
             <g key={idx} transform={`translate(${idx * 15}, 0)`}>
@@ -70,6 +71,6 @@ export default function App() {
         })}
       </svg>
       <Tooltip id="day" />
-    </div>
+    </>
   );
 }
